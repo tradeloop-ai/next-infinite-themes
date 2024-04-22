@@ -1,18 +1,18 @@
 "use client";
 
+import * as React from "react";
 import { createThemeStore, ThemeContext } from "./create-theme-store";
 import { ThemeScript } from "./theme-script";
 import { ThemeProviderDefaults, ThemeProviderProps } from "./types";
-import { ReactNode, useEffect, useRef } from "react";
 import { useStore } from "zustand";
 
 export function ThemeProvider({
   children,
   ...props
-}: { children?: ReactNode } & Partial<ThemeProviderProps>) {
+}: { children?: React.ReactNode } & Partial<ThemeProviderProps>) {
   const settings: ThemeProviderProps = { ...ThemeProviderDefaults, ...props };
 
-  const store = useRef(createThemeStore(settings)).current;
+  const store = React.useRef(createThemeStore(settings)).current;
 
   const [system, mode, setMode] = useStore(store, (s) => [
     s.system,
@@ -21,7 +21,7 @@ export function ThemeProvider({
   ]);
 
   // system theme listener
-  useEffect(() => {
+  React.useEffect(() => {
     function handleSystemChange(event: MediaQueryListEvent | MediaQueryList) {
       // !system or !mode or system and ui in same mode
       if (

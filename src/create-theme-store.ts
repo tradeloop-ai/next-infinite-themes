@@ -6,11 +6,11 @@ import {
   ThemeStoreProps,
 } from "./types";
 import { getSystemTheme, setDocumentTheme } from "./utils";
-import { createContext } from "react";
+import * as React from "react";
 import { createStore } from "zustand";
 import { persist } from "zustand/middleware";
 
-export const ThemeContext = createContext<ReturnType<
+export const ThemeContext = React.createContext<ReturnType<
   typeof createThemeStore
 > | null>(null);
 

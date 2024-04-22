@@ -1,9 +1,9 @@
 "use client";
 
 import { LocalThemeStore, ThemeProviderProps, ThemeStoreProps } from "./types";
-import { memo } from "react";
+import * as React from "react";
 
-export const ThemeScript = memo((settings: ThemeProviderProps) => {
+export const ThemeScript = React.memo((settings: ThemeProviderProps) => {
   return (
     <script
       suppressHydrationWarning

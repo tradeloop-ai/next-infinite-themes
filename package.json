@@ -1,12 +1,12 @@
 {
   "name": "next-infinite-themes",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.27",
+  "description": "Simple theme switcher for Next.js that supports the basic light/dark/system mode along with an infinite number of color themes for each.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsup index.ts --format cjs,esm --dts",
+    "build": "tsup",
     "lint": "tsc"
   },
   "repository": {
@@ -19,13 +19,29 @@
     "url": "https://github.com/tradeloop-ai/next-infinite-themes/issues"
   },
   "homepage": "https://github.com/tradeloop-ai/next-infinite-themes#readme",
+  "tsup": {
+    "entry": ["src/index.tsx"],
+    "sourcemap": false,
+    "minify": true,
+    "dts": true,
+    "clean": true,
+    "external": ["react"],
+    "format": ["esm", "cjs"],
+    "splitting": false,
+    "bundle": true
+  },
   "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "@types/react": "^18.2.79",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5"
   },
+  "peerDependencies": {
+    "react": "^16.8 || ^17 || ^18",
+    "react-dom": "^16.8 || ^17 || ^18"
+  },
   "dependencies": {
-    "react": "^18.2.0",
     "zustand": "^4.5.2"
   }
 }

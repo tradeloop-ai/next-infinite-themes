@@ -2,7 +2,7 @@
 
 import { ThemeContext } from "./create-theme-store";
 import { ThemeStoreProps } from "./types";
-import { useContext } from "react";
+import * as React from "react";
 import { useStore } from "zustand";
 
 /**
@@ -27,7 +27,7 @@ import { useStore } from "zustand";
  * @throws {Error} Throws if `ThemeProvider` is not found in the component tree.
  */
 export function useThemeStore<T>(selector: (state: ThemeStoreProps) => T): T {
-  const store = useContext(ThemeContext);
+  const store = React.useContext(ThemeContext);
   if (!store) throw new Error("Missing ThemeProvider in the tree");
   return useStore(store, selector);
 }
