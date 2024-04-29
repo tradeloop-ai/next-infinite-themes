@@ -1,6 +1,6 @@
 {
   "name": "next-infinite-themes",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "description": "Simple theme switcher for Next.js that supports the basic light/dark/system mode along with an infinite number of color themes for each.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

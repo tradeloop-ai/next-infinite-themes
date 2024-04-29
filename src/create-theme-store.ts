@@ -47,12 +47,10 @@ export const createThemeStore = (props: ThemeProviderProps) => {
 
         mode: undefined, // initialized by dangerouslySetInnerHTML
         setMode: (mode) => {
-          // if system is true, disable it if switching to non system preference theme
+          // if system is true, disable it
           const system = get().system;
           if (system) {
-            if (mode !== getSystemTheme()) {
-              set(() => ({ system: false }));
-            }
+            set(() => ({ system: false }));
           }
 
           setDocumentTheme({
